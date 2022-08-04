@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS properties of the actual image and the cropped image -->
+    <!-- Displays original image in 400x400 format with 2px of margin and border
+    on top right corner of the page -->
+    <!-- Displays the cropped images in 100x100 format with 2px of margin
+    and border on top left corner of the page -->
+    <style>
+        .actualImage {
+            background-image: url(Images/Taj-Mahal-Agra-India.png);
+            width: 400px;
+            height: 400px;
+            margin: 2px;
+            border: 2px solid black;
+            position: absolute;
+            left: 600px;
+            top: 4px;
+        }
+
+
+        .croppedImage {
+            background-image: url(Images/Taj-Mahal-Agra-India.png);
+            width: 100px;
+            height: 100px;
+            margin: 2px;
+            border: 2px solid black;
+            float: left;
+            cursor: pointer;
+        }
+
+        .croppedContainer {
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+
+    <script>
+
+        function drag(box) {
+            box.dataTransfer.setData("text", box.target.id);
+            box.dataTransfer.setData("parent", box.path[1].id);
+        }
+
+        function drop(box) {
+            box.preventDefault();
+            var data = box.dataTransfer.getData("text");
+            var parent = box.dataTransfer.getData("parent");
+            var parentDiv = document.getElementById(parent);
+            var alreadyPresentImage = document.getElementById(box.path[0].id);
+            var newImage = document.getElementById(data);
+
+            var secondParentDiv = document.getElementById(box.path[1].id);
+            parentDiv.removeChild(newImage);
+            parentDiv.appendChild(alreadyPresentImage);
+            secondParentDiv.appendChild(newImage);
+        }
+        
+        function allowDrop(box) {
+            box.preventDefault();
+        }
+    </script>
+</head>
+
+<body>
+    <!-- This div has all the cropped images assigned to their respective divs
+    by the usage of background-position CSS attribute  -->
+    <div class="croppedContainer">
+        <div id="piece-1-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-1" class="croppedImage" style="background-position: 0px 0px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-2-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-2" class="croppedImage" style="background-position: 0px -100px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-3-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-3" class="croppedImage" style="background-position: 0px -200px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-4-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-4" class="croppedImage" style="background-position: 0px -300px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-5-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-5" class="croppedImage" style="background-position: -100px 0px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-6-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-6" class="croppedImage" style="background-position: -100px -100px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-7-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-7" class="croppedImage" style="background-position: -100px -200px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-8-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-8" class="croppedImage" style="background-position: -100px -300px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-9-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-9" class="croppedImage" style="background-position: -200px 0px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-10-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-10" class="croppedImage" style="background-position: -200px -100px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-11-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-11" class="croppedImage" style="background-position: -200px -200px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-12-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-12" class="croppedImage" style="background-position: -200px -300px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-13-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-13" class="croppedImage" style="background-position: -300px 0px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-14-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-14" class="croppedImage" style="background-position: -300px -100px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-15-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-15" class="croppedImage" style="background-position: -300px -200px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <div id="piece-16-container" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div id="piece-16" class="croppedImage" style="background-position: -300px -300px;" draggable="true"
+                ondragstart="drag(event)"></div>
+        </div>
+
+        <!-- This div displays the original image -->
+        <div class="actualImage"></div>
+
+
+
+</body>
+
+</html>
